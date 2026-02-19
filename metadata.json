@@ -1,0 +1,5 @@
+{
+  "name": "ExpenseFlow",
+  "description": "A minimal, aesthetic expense monitoring app with WhatsApp integration, analytics, and budget tracking.",
+  "requestFramePermissions": []
+}
