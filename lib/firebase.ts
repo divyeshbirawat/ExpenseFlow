@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, Auth } from 'firebase/auth';
 import { getFirestore, Firestore } from 'firebase/firestore';
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,6 +17,7 @@ let auth: Auth | undefined;
 let db: Firestore | undefined;
 let googleProvider: GoogleAuthProvider | undefined;
 let isFirebaseInitialized = false;
+let analytics;
 
 // Only initialize if we have the required config
 if (
@@ -26,6 +28,7 @@ if (
 ) {
   try {
     app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+    analytics = getAnalytics(app);
     auth = getAuth(app);
     db = getFirestore(app);
     googleProvider = new GoogleAuthProvider();
@@ -35,4 +38,4 @@ if (
   }
 }
 
-export { auth, db, googleProvider, isFirebaseInitialized };
+export { auth, db, googleProvider, isFirebaseInitialized, analytics };
