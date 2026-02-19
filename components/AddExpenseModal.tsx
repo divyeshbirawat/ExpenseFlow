@@ -54,7 +54,7 @@ export default function AddExpenseModal({ onClose }: AddExpenseModalProps) {
             <div>
               <label className="block text-sm font-medium text-stone-700 mb-1">Amount</label>
               <div className="relative">
-                <span className="absolute left-[4px] top-1/2 -translate-y-1/2 text-stone-400 font-medium">₹</span>
+                <span className="absolute left-[5px] top-1/2 -translate-y-1/2 text-stone-400 font-medium">₹</span>
                 <input
                   type="number"
                   value={amount}
